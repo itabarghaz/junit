@@ -1,8 +1,7 @@
 package com.junit;
 
 import org.junit.jupiter.api.*;
-import org.mockito.Mockito;
-
+import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 public class CalculTest {
 
@@ -30,10 +29,10 @@ public class CalculTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        calculService = Mockito.mock(ICalculService.class);
+        calculService = mock(ICalculService.class);
         calcul = new Calcul(calculService);
-        Mockito.when(calculService.carre(2)).thenReturn(3);
-        Mockito.when(calculService.carre(3)).thenReturn(10);
+        when(calculService.carre(2)).thenReturn(3);
+        when(calculService.carre(3)).thenReturn(10);
     }
     @AfterEach
     void tearDown() throws Exception {
